@@ -1,15 +1,20 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 
-let circle_size = 0;
 
 const CircleStyle = styled.div`
     background-color: rgba(255,255,255,0.25);;
     border-radius: 50%;
     width: ${props => props.width}px;
     height: ${props => props.width}px;
-    margin: 0 auto;
     display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
 `;
 
 const Text = styled.div`
@@ -21,14 +26,14 @@ const Text = styled.div`
 class Circle extends Component{
     constructor(props){
         super(props);
-        circle_size = props.width;
     }
 
     render(){
         return(
             <CircleStyle width={this.props.width}>
                 <Text>
-                    size: {this.props.width}
+                    <h1>kindai-csg</h1>
+                    近畿大学電子計算機研究会
                 </Text>
             </CircleStyle>
         );

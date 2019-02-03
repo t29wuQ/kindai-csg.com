@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import EventListener from 'react-event-listener';
 import styled from 'styled-components';
-import Circle from './circle'
+import Circle from './circle';
 
 const TopStyle = styled.div`
     background-color: yellow;
     height: ${props => props.height}px;
+    width: 100%;
 `;
 
 class Top extends Component{
@@ -23,13 +24,16 @@ class Top extends Component{
                     this.setState({width: window.innerWidth});
                     this.setState({height: window.innerHeight});
                 }}/>
-                {this.state.width}
                 <Circle width={
                     (() => {
-                    if (this.state.width < 600)
-                        return this.state.width * 0.5;
-                    else
-                        return 400;
+                        if (this.state.width < 400 || this.state.height < 400){
+                            if (this.state.width > this.state.height)
+                                return this.state.height;
+                            else
+                                return this.state.width;
+                        }
+                        else
+                            return 400;
                 })()
                 }/>
             </TopStyle>
