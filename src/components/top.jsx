@@ -12,8 +12,8 @@ class Top extends Component{
     constructor(props){
         super(props);
         this.state={
-            width: 0,
-            height: 0
+            width: props.width,
+            height: props.height
         }
     }
     render(){
